@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj", "{D653082D-DD15-4FE6-9A7C-C9B9C638D2A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D653082D-DD15-4FE6-9A7C-C9B9C638D2A6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D653082D-DD15-4FE6-9A7C-C9B9C638D2A6}.Debug|Win32.Build.0 = Debug|Win32
+		{D653082D-DD15-4FE6-9A7C-C9B9C638D2A6}.Release|Win32.ActiveCfg = Release|Win32
+		{D653082D-DD15-4FE6-9A7C-C9B9C638D2A6}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
