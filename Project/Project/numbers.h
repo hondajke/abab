@@ -1,112 +1,232 @@
 #include<string>
+
 using namespace std;
-string numbers_lt_20_to_string(int number){
-	string answer;
-	switch (number)
+
+string stringfromint(int num){
+	string s;
+	switch(num)
 	{
-	case 0:answer = "ноль"; break;
-	case 1:answer = "один";break;
-	case 2:answer = "два";break;
-	case 3:answer = "три";break;
-	case 4:answer = "четыре";break;
-	case 5:answer = "пять";break;
-	case 6:answer = "шесть";break;
-	case 7:answer = "семь";break;
-	case 8:answer = "восемь";break;
-	case 9:answer = "девять";break;
-	case 10:answer = "десять";break;
-	case 11:answer = "одиннадцать";break;
-	case 12:answer = "двенадцать";break;
-	case 13:answer = "тринадцать";break;
-	case 14:answer = "четырнадцать";break;
-	case 15:answer = "пятьнадцать";break;
-	case 16:answer = "шестьнадцать";break;
-	case 17:answer = "семьнадцать";break;
-	case 18:answer = "восемьнадцать";break;
-	case 19:answer = "девятьнадцать";break;
+	case 0:
+			 s="нуль";
+		 break;
+	case 1:
+			 s="один";
+		 break;
+	case 2:
+			 s="два";
+		 break;
+	case 3:
+			 s="три";
+		 break;
+	case 4:
+			 s="четыре";
+		 break;
+	case 5:
+			 s="пять";
+		 break;
+	case 6:
+			 s="шесть";
+		 break;
+	case 7:
+			 s="семь";
+		 break;
+	case 8:
+			 s="восемь";
+		 break;
+	case 9:
+			s="девять"; 
+		 break;
+	case 10:
+			 s="десять";
+		 break;
+	case 11:
+			 s="одиннадцать";
+		 break;
+	case 12:
+			 s="двенадцать";
+		 break;
+	case 13:
+			 s="тринадцать";
+		 break;
+	case 14:
+			 s="четырнадцать";
+		 break;
+	case 15:
+			 s="пятнадцать";
+		 break;
+	case 16:
+			 s="шестнадцать";
+		 break;
+	case 17:
+		s="семнадцать";	 
+		 break;
+	case 18:
+		s="восемнадцать";	 
+		 break;
+	case 19:
+		s="девятнадцать";
+		 break;
+
+	default:
+		break;
+
+	}	
+	return s;
+}	
+
+string number_less_100_to_string(int number)
+{
+    string answer = "";
+    if(number>=11 && number<=19)
+        answer=stringfromint(number);
+    else 
+    {  int remain=number%10;
+        int tens =number-remain;
+	switch(tens)
+	{
+	case 20:
+		answer+="двадцать";
+		break;
+	case 30:
+		answer+="тридцать";
+		break;
+	case 40:
+		answer+="сорок";
+		break;
+	case 50:
+		answer+="пятьдесят";
+		break;
+	case 60:
+		answer+="шестьдесят";
+		break;
+	case 70:
+		answer+="семьдесят";
+		break;
+	case 80:
+		answer+="восемьдесят";
+		break;
+	case 90:
+		answer+="девяносто";
+		break;
 	default:
 		break;
 	}
+	if(remain!=0 && tens==0)
+		answer+=stringfromint(remain);
+    else if (remain!=0)
+        answer+=" "+stringfromint(remain);
+    else if(tens==0 && remain==0) answer="нуль";}
 	return answer;
 }
-string number_less_100_to_string(int number)
-{
-    string answer;
-	int tens = number / 10;
-	int remainder = number % 10;
-	if (number < 20) answer = numbers_lt_20_to_string(number);
-	else {
-		switch (tens)
-		{
-			case 2: answer = "двадцать"; break;
-			case 3: answer = "тридцать"; break;
-			case 4: answer = "сорок"; break;
-			case 5: answer = "пятьдесять"; break;
-			case 6: answer = "шестьдесять"; break;
-			case 7: answer = "семьдесять"; break;
-			case 8: answer = "восемьдесять"; break;
-			case 9: answer = "девяносто"; break;
-			default: break;
-		}
-		if (remainder != 0) {
-			answer += " " + numbers_lt_20_to_string(remainder);
-		}
-	}
-    return answer;
-}
+
+
 string number_less_1000_to_string(int number)
 {
-	string answer;
-	int hundreds = number / 100;
-	int remainder = number % 100;
-	if (number < 100) answer = number_less_100_to_string(number);
-	else {
-		switch (hundreds)
-		{
-			case 1: answer = "сто"; break;
-			case 2: answer = "двести"; break;
-			case 3: answer = "триста"; break;
-			case 4: answer = "четыреста"; break;
-			case 5: answer = "пятьсот"; break;
-			case 6: answer = "шестьсот"; break;
-			case 7: answer = "семьсот"; break;
-			case 8: answer = "восемьсот"; break;
-			case 9: answer = "девятьсот"; break;
-		}
-		if (remainder != 0) {
-			answer += " " + number_less_100_to_string(remainder);
-		}
+    string answer = "";
+	int remain = number%100;
+	int hundreds =number-remain;
+	switch(hundreds)
+	{
+	case 100:
+		answer+="сто";
+		break;
+	case 200:
+		answer+="двести";
+		break;
+	case 300:
+		answer+="тристо";
+		break;
+	case 400:
+		answer+="четыреста";
+		break;
+	case 500:
+		answer+="пятьсот";
+		break;
+	case 600:
+		answer+="шестьсот";
+		break;
+	case 700:
+		answer+="семьсот";
+		break;
+	case 800:
+		answer+="восемьсот";
+		break;
+	case 900:
+		answer+="девятьсот";
+		break;
+	default:
+		
+		break;
 	}
+	if(remain!=0 && hundreds!=0)
+		answer+=" "+number_less_100_to_string(remain);
+    else if (remain!=0)
+        answer+=number_less_100_to_string(remain);
+    else if(hundreds==0 && remain==0) answer="нуль";
 	return answer;
 }
-string objects_less_100_to_string(int number, string s1, string s2, string s3)
+
+
+
+
+string object_to_string (int number , string s1 , string s2 , string s3)
 {
-    string answer;
-	int remainder = number % 10;
-	answer = number_less_1000_to_string(number);
-	if(number > 10 && number < 15) {answer = answer + " " + s3; }
-	else{
-		switch (remainder)
-		{
-			case 1: answer = answer + " " + s1; break;
-			case 2: answer = answer + " " + s2; break;
-			case 3: answer = answer + " " + s2; break;
-			case 4: answer = answer + " " + s2; break;
-			default:answer = answer + " " + s3; break;
-		}
-	}
-    return answer;
-}
-string currency_to_string(int integer_value, string si1, string si2, string si3, int decimal_value, string sd1, string sd2, string sd3)
-{
-    string answer;
-	if(integer_value){
-		answer = objects_less_100_to_string(integer_value, si1, si2, si3);
-		if(decimal_value) answer = answer + ", " + objects_less_100_to_string(decimal_value, sd1, sd2, sd3);
-	}
-	else{
-		if(decimal_value) answer = objects_less_100_to_string(decimal_value, sd1, sd2, sd3);
-	}
+    string answer=number_less_1000_to_string(number);
+    int remain=number%100;
+    if(remain>=5 && remain<=20)
+       answer+=" "+s3;
+    else 
+    {
+    remain=number%10;
+        switch (remain)
+        {
+        case 0:
+            answer+=" "+s3;
+            break;
+        case 1:
+            answer+=" "+s1;
+            break;
+        case 2:
+            answer+=" "+s2;
+            break;
+        case 3:
+            answer+=" "+s2;
+            break;
+        case 4:
+            answer+=" "+s2;
+            break;
+        case 5:
+            answer+=" "+s3;
+            break;
+        case 6:
+            answer+=" "+s3;
+            break;
+        case 7:
+            answer+=" "+s3;
+            break;
+        case 8:
+            answer+=" "+s3;
+            break;
+        case 9:
+            answer+=" "+s3;
+            break;
+        default:
+            break;
+        }
+    
+    }
+
+
     return answer;
 }
 
+
+string currency_to_string (int integer,string is1,string is2,string is3, int decimal,string ds1,string ds2,string ds3)
+{
+
+    string answer=object_to_string(integer,is1,is2,is3)+", "+object_to_string(decimal,ds1,ds2,ds3);
+    return answer;
+
+
+
+}
